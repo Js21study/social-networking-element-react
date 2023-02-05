@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+
+import { useEffect, useState } from 'react';
 import './App.css';
+import Final from './components/Final';
+import Users from './components/Users';
 
 function App() {
+  const [dataUsers, setDataUsers] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+
+
+  useEffect(() => {
+    setIsLoading(true)
+    fetch('https://reqres.in/api/users?page=2')
+    .then( (res) => res.json())
+    .then( (json) => {
+      setDataUsers(json.data)
+      setIsLoading(false)
+    })
+    .catch( err => { 
+      console.warn(err)
+      alert('There is error with getting users. Please, try again!')
+    })
+  }, [])
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <Users dataUsers={dataUsers} isLoading={isLoading}/>
+      {/* <Final/> */}
+    
     </div>
   );
 }

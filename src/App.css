@@ -1,38 +1,124 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Comfortaa', cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wrapper {
+  background: repeating-linear-gradient(#FFA07A, #FA8072);
+  width: 100vw;
+  height: 100%;
+  padding: 10% 0;
+  display: flex;
+  justify-content: space-around;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card{
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  width: 400px;
+  background: #fff;
+  padding: 25px;
+  box-shadow: 5px 3px 3px #B22222;
+  border-radius: 15px;
+}
+
+.input{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
+
+input{
+  max-width: 270px;
+  margin: 5px auto;
+  font-size: 24px;
+  padding: 5px 15px;
+  border: 1px solid #B22222;
+  border-radius: 15px;
+  padding-left: 35px;
+  
+}
+
+input:focus{
+  outline: #FF0000;
+  outline-style: solid;
+}
+
+.search {
+  position: absolute;
+  left: 52px;
+  top: 18px;
+
+}
+
+button {
+  cursor: pointer;
+  width: 310px;
+  margin: 20px auto;
+  font-size: 24px;
+  padding: 5px 5px;
+  background:linear-gradient(#B22222, #8B0000);
+  border: 1px solid #B22222;
+  border-radius: 15px;
+  box-shadow: 2px 3px 3px #333;
+  color:#f6aba2;
+  opacity: 0.9;
+}
+
+button:hover{
+  opacity: 1;
+  transition: all 0.1s ease;
+}
+
+
+.user-cage{
+
+  margin: 10px 10%;
+  padding: 5px;
+  border-radius: 15px;
+  border: 1px solid silver;
+  display: flex;
+  justify-content: space-between;
+ 
+}
+
+.user-cage .info {
+  
+  display: flex;
+  font-size: 14px;
+  opacity: 0.8;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.user-cage .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.user-cage .email {
+  display: flex;
+  font-size: 12px;
+  opacity: 0.8;
 }
+
+.user-cage .plus{
+  position: relative;
+  font-size: 30px;
+  cursor: pointer;
+  opacity: 0.6;
+  top: 13px;
+}
+
+.user-cage .plus:hover{
+  transition: all 0.1s ease;
+  opacity: 0.8;
+}
+
