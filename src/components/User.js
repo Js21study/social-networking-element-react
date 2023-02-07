@@ -1,8 +1,8 @@
 import React from 'react'
 import { BsAt } from "react-icons/bs";
-import { BsPersonPlus } from "react-icons/bs";
+import { BsPersonPlus, BsFillPersonXFill } from "react-icons/bs";
 
-function User({name, lastName, avatar, email}) {
+function User({name, lastName, avatar, email, onClickToAdd, isAdded}) {
   return (
     <div className='user-cage'>
     <div className='info'>
@@ -13,7 +13,7 @@ function User({name, lastName, avatar, email}) {
         <p>{email}</p></div>
         </div> 
         </div>
-        <div className='plus'><BsPersonPlus/></div>
+        <div onClick={onClickToAdd} className='plus'> { isAdded ? <BsFillPersonXFill/>: <BsPersonPlus/>}</div>
     </div>
     
   )

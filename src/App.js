@@ -7,7 +7,20 @@ import Users from './components/Users';
 function App() {
   const [dataUsers, setDataUsers] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [searchValue, setSearchValue] = useState('')
+  const [toAdd, setToAdd] = useState([3, 1])
 
+
+  const onClickToAdd = (id) => {
+    if(toAdd.includes(id)){
+      setToAdd((prev) => prev.filter((_id) => _id !== id))
+
+    } else {
+      setToAdd((prev) => [...prev, id])
+
+    }
+
+  }
 
   useEffect(() => {
     setIsLoading(true)
@@ -22,10 +35,14 @@ function App() {
       alert('There is error with getting users. Please, try again!')
     })
   }, [])
+
+  const onChangeSearchValue = (e) => {
+    setSearchValue(e.target.value)
+  }
   
   return (
     <div className="wrapper">
-      <Users dataUsers={dataUsers} isLoading={isLoading}/>
+      <Users toAdd={toAdd} onClickToAdd={onClickToAdd} onChangeSearchValue={onChangeSearchValue} searchValue={searchValue} dataUsers={dataUsers} isLoading={isLoading}/>
       {/* <Final/> */}
     
     </div>

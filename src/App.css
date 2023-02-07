@@ -9,10 +9,12 @@
   background: repeating-linear-gradient(#FFA07A, #FA8072);
   width: 100vw;
   height: 100%;
-  padding: 10% 0;
+  padding: 5% 0 30% 0;
   display: flex;
   justify-content: space-around;
 }
+
+h1{color: #DC143C}
 
 .card{
   display: flex;
@@ -56,7 +58,7 @@ input:focus{
 
 }
 
-button {
+a button {
   cursor: pointer;
   width: 310px;
   margin: 20px auto;
@@ -68,9 +70,10 @@ button {
   box-shadow: 2px 3px 3px #333;
   color:#f6aba2;
   opacity: 0.9;
+  margin-left: 11%;
 }
 
-button:hover{
+a button:hover{
   opacity: 1;
   transition: all 0.1s ease;
 }
