@@ -8,20 +8,34 @@ function App() {
   const [dataUsers, setDataUsers] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [searchValue, setSearchValue] = useState('')
-  const [toAdd, setToAdd] = useState([3, 1])
+  const [toAdd, setToAdd] = useState([])
+  const [finish, setFinish] = useState(false)
 
 
-  const onClickToAdd = (id) => {
-    if(toAdd.includes(id)){
-      setToAdd((prev) => prev.filter((_id) => _id !== id))
+  // const onClickToAdd = (id) => {
+  //   if(toAdd.includes(id)){
+  //     setToAdd((prev) => prev.filter((_id) => _id !== id))
+
+  //   } else {
+  //     setToAdd((prev) => [...prev, id])
+
+  //   }
+    
+  // }
+console.log(toAdd)
+  
+  const onClickToAdd = (obj) => {
+    if(toAdd.includes(obj)){
+      setToAdd((prev) => prev.filter((_obj) => _obj !== obj))
 
     } else {
-      setToAdd((prev) => [...prev, id])
+      setToAdd((prev) => [...prev, obj])
 
     }
-
+    
   }
-
+  
+  
   useEffect(() => {
     setIsLoading(true)
     fetch('https://reqres.in/api/users?page=2')
@@ -42,9 +56,11 @@ function App() {
   
   return (
     <div className="wrapper">
-      <Users toAdd={toAdd} onClickToAdd={onClickToAdd} onChangeSearchValue={onChangeSearchValue} searchValue={searchValue} dataUsers={dataUsers} isLoading={isLoading}/>
-      {/* <Final/> */}
-    
+      {finish
+      ?  <Final toAdd={toAdd} userLength={toAdd.length}/> 
+      : <Users setFinish={setFinish} toAdd={toAdd} onClickToAdd={onClickToAdd} onChangeSearchValue={onChangeSearchValue} searchValue={searchValue} dataUsers={dataUsers} isLoading={isLoading}/>
+
+      }
     </div>
   );
 }
